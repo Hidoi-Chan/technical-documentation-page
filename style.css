@@ -1,0 +1,137 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #eee;
+    color: #000;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+}
+
+#burger {
+    display: none;
+}
+#burger+label {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #567;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 0 0 0 2px;
+    z-index: 9999;
+}
+#burger+label>span {
+    display: block;
+    position: absolute;
+    top: calc(50% - 1.5px);
+    left: calc(50% - 15px);
+    width: 30px;
+    height: 3px;
+    border-radius: 1px;
+    background-color: #f0f1f3;
+    transition: 250ms ease;
+}
+#burger+label>span:first-child {
+    transform: translateY(-10px);
+}
+#burger+label>span:last-child {
+    transform: translateY(10px);
+}
+#burger+label>span:nth-child(2) {
+    transform: scaleX(1);
+}
+
+#burger:checked+label>span:first-child {
+    transform: rotate(45deg);
+}
+#burger:checked+label>span:last-child {
+    transform: rotate(-45deg);
+}
+#burger:checked+label>span:nth-child(2) {
+    transform: scaleX(0);
+}
+
+#navbar {
+    width: 25%;
+    padding-top: 20px;
+    border-right: 3px solid #00161666;
+    background-color: #eee;
+    height: 100%;
+    overflow-y: scroll;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+}
+
+#navbar header {
+    padding: 0 20px;
+}
+
+#navbar ul {
+    padding: 0;
+}
+
+#navbar li {
+    list-style: none;
+}
+
+#navbar a {
+    color: #000;
+    display: block;
+    padding: 10px 20px;
+    border-top: 1px solid #00161666;
+    text-decoration: none;
+}
+
+#main-doc {
+    margin-left: 25%;
+    padding: 20px;
+}
+
+header {
+    font-size: 1.8em;
+    font-weight: 500;
+}
+
+code {
+    display: block;
+    background-color: #f7f7f7;
+    padding: 15px;
+    margin: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+    #navbar header {
+        font-size: 1.6em;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #burger+label {
+        display: block;
+    }
+    #navbar {
+        left: -25%;
+        border: none;
+    }
+    #main-doc {
+        margin: 0;
+    }
+    #burger:checked~#navbar {
+        border-right: 3px solid #00161666;
+        left: 0;
+        width: 270px;   
+    }
+}
+
+@media screen and (max-width: 420px) {
+    code {
+        max-width: 80%;
+        overflow-x: auto;
+    }
+}
